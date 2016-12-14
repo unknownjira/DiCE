@@ -1,0 +1,55 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>DiCE demo</title>
+	<!--<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>-->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+         function post() {
+             $.ajax({
+                 type: "POST",
+                 dataType: "json",
+                 async: false,
+                 crossDomain: true,
+                 url: "https://testdice.atlassian.net/rest/auth/1/session",
+                 data:{username: 'admin', password: 'mobileuser123'},
+                 //data: {"username" : "admin", "password" : "mobileuser123"},
+                 //contentType: "application/json; charset=utf-8",
+                 //dataType: "json",
+                 //processData: true,
+                 headers: {
+                 "Content-Type":"application/json"
+                 },
+                
+                 success: function (data, status, jqXHR) {
+                     alert("success..." + data);
+                 },
+                 error: function (jqXHR, textStatus, errorThrown) {
+                    
+                     alert(textStatus +"");
+                 }
+             });
+        }
+    </script>
+</head>
+<body>
+	<form>
+        <div>
+            <label for="name">Title: </label>
+            <input type="text" id="name" name="user_name" />
+        </div>
+        <div>
+            <label for="msg">Description:</label>
+            <textarea id="msg" name="user_message"></textarea>
+        </div>
+        
+        <div>
+            <button onclick="post()">Submit</button>
+        </div>
+    </form>
+    <div id="result"></div>
+
+</body>
+</html>
